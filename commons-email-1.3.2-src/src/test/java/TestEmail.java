@@ -213,7 +213,16 @@ public class TestEmail {
 
 
 
-
+	// testing getMailSession
+	@Test
+	public void GetMailSessionTest() throws EmailException {
+		
+		email.setHostName("host");
+		email.setAuthentication("u", "p");
+		email.setBounceAddress("jhwbe@.com");
+		
+		email.getMailSession();
+	}
 
 
 
