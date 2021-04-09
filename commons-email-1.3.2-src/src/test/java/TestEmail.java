@@ -39,3 +39,43 @@ public class TestEmail {
 		
 		assertEquals(numberOfEmails, email.getBccAddresses().size());
 	}
+
+
+	// testing addCc function with 2 email
+	@Test
+	public void addCctest() throws Exception {
+		
+		email.addCc(TEST_EMAILS[0]); // add Cc email
+		email.addCc(TEST_EMAILS[1]); // ad Cc email
+		
+		assertEquals(2, email.getCcAddresses().size());
+	}
+	
+	
+	// testing addHeader function with 1 header
+	@Test
+	public void addHeadertest1() throws Exception {
+		
+		email.addHeader("name", "value"); // adding header with name and value
+		
+		assertEquals(1, email.getHeaders().size());
+	}
+	
+	// testing addHeader function with empty name
+	@Test(expected = IllegalArgumentException.class)
+	public void addHeadertest2() throws Exception {
+		
+		email.addHeader("" , "value");
+		
+		assertEquals(0, email.getHeaders().size());
+	}
+
+
+
+
+
+
+
+
+
+}
