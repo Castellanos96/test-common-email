@@ -107,6 +107,20 @@ public class TestEmail {
 
 
 
-
+	// test getSentDate
+	@Test
+	public void getSentDateTest1() {
+		
+		email.setSentDate(new Date(0));
+		
+		assertEquals(new Date(0), email.getSentDate());
+	}
+	
+	// test getSentDate with null date
+	@Test
+	public void getSentDateTest2() {
+		// null date
+		email.getSentDate();
+	}
 
 }
