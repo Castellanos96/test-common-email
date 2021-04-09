@@ -71,6 +71,15 @@ public class TestEmail {
 	}
 
 
+	// testing AddReplyTofunction
+	@Test
+	public void addReplyTotest() throws Exception {
+		
+		email.addReplyTo("email@gm.com", "testname");
+		
+		assertEquals(1, email.getReplyToAddresses().size());
+	}
+	
 
 
 
