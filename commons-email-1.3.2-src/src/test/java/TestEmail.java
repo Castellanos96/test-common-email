@@ -81,7 +81,29 @@ public class TestEmail {
 	}
 	
 
-
+	// testing getHostName
+	@Test
+	public void getHostNametest1() {
+		
+		// set and get host name
+		email.setHostName("local host");
+		String hostname = email.getHostName();
+		
+		assertEquals("local host", hostname);
+	}
+	
+	
+	//testing getHostName with session
+	@Test()
+	public void getHostNametest3() {
+		
+		Properties properties = new Properties();
+		Session session = Session.getDefaultInstance(properties,null);
+		properties.put(EmailConstants.MAIL_HOST, "1ocal host");
+		email.setMailSession(session);
+		
+		assertEquals("local host", email.getHostName());
+	}
 
 
 
