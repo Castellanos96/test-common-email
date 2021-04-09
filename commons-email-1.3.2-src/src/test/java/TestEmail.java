@@ -151,7 +151,61 @@ public class TestEmail {
 
 
 
+	// testing BuildMimeMessage
+	@Test
+	public void buildMimeMsgTest1() throws EmailException {
+		
+		email.setHostName("testhost");
+		email.setSmtpPort(54545);
+		email.setFrom(".domain@s");
+		email.addTo("to@a.com");
+		email.setSubject("subject");
+		
+		try {
+		email.setCharset("ISO-8859-1");
+		} catch(UnsupportedCharsetException ex) {
+			
+		}
+     	email.setContent("content", "r/s");
+     	
+     	email.addCc("al@a.com");
+     	email.addBcc("ac@ac.com");
+     	email.addHeader("name", "val");
+     
+     	email.addReplyTo("s@k.com");
+     	
+		email.buildMimeMessage();
+	}
 
+	// testing BuildMimeMessage with null content
+	@Test
+	public void buildMimeMsgTest2() throws EmailException {
+	
+		email.setHostName("local host");
+		email.setSmtpPort(46465);
+		email.setFrom("testing@b.com");
+		email.addTo("testtest@k.com");
+ 		
+     	email.setContent(null);
+     	
+     	email.buildMimeMessage();
+     	
+	}
+	
+	// testing BuildMimeMessage with session
+	@Test(expected = IllegalStateException.class)
+	public void BuildMimeMsgTest3() throws EmailException {
+		
+		Properties properties = new Properties();
+		Session session = Session.getDefaultInstance(properties,null);
+		properties.put(EmailConstants.MAIL_HOST, "local host");
+		
+		email.setHostName("local host");
+		
+	    email.message=email.createMimeMessage(session);
+		
+		email.buildMimeMessage();
+	}
 
 
 
