@@ -139,7 +139,13 @@ public class TestEmail {
 
 
 
-
+	 // testing setFrom
+		@Test
+		public void SetFromTest() throws Exception {
+			
+			email.setFrom("from@f.com");
+			
+		}
 
 
 
