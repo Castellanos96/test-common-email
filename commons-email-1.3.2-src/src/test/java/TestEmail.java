@@ -123,4 +123,43 @@ public class TestEmail {
 		email.getSentDate();
 	}
 
+
+
+
+	// getSocketConnectionTimeout tests
+	@Test
+	public void testGetSocketConnectionTimeOut() {
+		
+		email.setSocketConnectionTimeout(0);
+		
+		assertEquals(0, email.getSocketConnectionTimeout());
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
